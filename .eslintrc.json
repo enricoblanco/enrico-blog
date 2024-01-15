@@ -1,6 +1,6 @@
 {
   "extends": ["eslint:recommended", "next","next/core-web-vitals", "prettier"],
-  "plugin": ["prettier"],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error"
   }
