@@ -1,0 +1,10 @@
+{
+    "endOfLine": "lf",
+    "comma-dangle": ["error", "never"],
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  }
+  
