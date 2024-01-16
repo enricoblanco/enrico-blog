@@ -1,9 +1,6 @@
 import React from 'react'
+import { About } from '../components/About'
 
 export default function Posts() {
-  return (
-    <div>
-      <div className="text-[25px] font-semibold">ABOUT</div>
-    </div>
-  )
+  return <About />
 }

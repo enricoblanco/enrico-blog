@@ -18,6 +18,7 @@ export async function POST(req: Request) {
     })
     return NextResponse.json(newPost)
   } catch (e) {
+    console.error(e)
     return NextResponse.json({ error: 'Something went wrong' })
   }
 }
