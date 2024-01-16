@@ -33,9 +33,15 @@ export const Post = () => {
   const [post, setPost] = useState<PostInterface>()
 
   return (
-    <div className="flex flex-col justify-center w-full bg-red-500">
-      <div className="text-[25px] font-bold">{post?.title}</div>
-      <div>{post?.content}</div>
+    <div className="w-full">
+      <div className="flex justify-center">
+        <div className="flex flex-col gap-8">
+          <div className="text-[25px] flex justify-center font-bold">
+            {post?.title}
+          </div>
+          <div className="text-justify">{post?.content}</div>
+        </div>
+      </div>
     </div>
   )
 }

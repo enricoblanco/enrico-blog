@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <div className="flex-col flex justify-center">
-      <div className="py-[60px] px-12">
+      <div className="pt-[180px] pb-[60px] px-44">
         <Link href={'/'} className="text-[28px] font-bold">
           KINDA FUNNY
         </Link>
@@ -32,5 +32,3 @@ const Navbar = () => {
     </div>
   )
 }
-
-export default Navbar
