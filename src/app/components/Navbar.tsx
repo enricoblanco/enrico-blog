@@ -4,9 +4,9 @@ import React from 'react'
 export const Navbar = () => {
   return (
     <div className="flex-col flex justify-center">
-      <div className="pt-[180px] pb-[60px] px-44">
+      <div className="pt-[130px] pb-[60px] px-44">
         <Link href={'/'} className="text-[28px] font-bold">
-          KINDA FUNNYY
+          ENRICOCITY
         </Link>
         <nav>
           <ul className="flex flex-row gap-3 text-lg">
