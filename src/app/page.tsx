@@ -2,7 +2,7 @@
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <p>Welcome to my kingdom.</p>
       <p>
         Here you are going to see some funny and interesting things that I want
