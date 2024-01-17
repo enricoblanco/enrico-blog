@@ -10,10 +10,10 @@ export const About = () => {
           <div className="text-[25px] flex justify-center font-bold">ABOUT</div>
           <div className="text-justify flex flex-col gap-2">
             <p>
-              Hello! I&apos;m Enrico Blanco, a student diving into the world of
-              computer science. By day, I&apos;m part of the WebMed crew,
-              working as a front-end developer, helping out in the healthcare
-              tech scene.
+              Hello! I&apos;m Enrico Cidade(city) Blanco, a student diving into
+              the world of computer science. By day, I&apos;m part of the WebMed
+              crew, working as a front-end developer, helping out in the
+              healthcare tech scene.
             </p>
             <p>
               Currently I&apos;m a student at the University UNISINOS in Brazil,
