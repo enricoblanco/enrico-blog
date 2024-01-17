@@ -6,7 +6,7 @@ export const Navbar = () => {
     <div className="flex-col flex justify-center">
       <div className="pt-[180px] pb-[60px] px-44">
         <Link href={'/'} className="text-[28px] font-bold">
-          KINDA FUNNY
+          KINDA FUNNYY
         </Link>
         <nav>
           <ul className="flex flex-row gap-3 text-lg">
