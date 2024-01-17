@@ -1,10 +1,11 @@
 'use client'
 
+import { NextResponse } from 'next/server'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'next/navigation'
 
-import { NextResponse } from 'next/server'
-import React, { useEffect, useState } from 'react'
+import { TextSkeleton } from './TextSkeleton'
 
 interface PostInterface {
   id: string
@@ -37,9 +38,11 @@ export const Post = () => {
       <div className="flex justify-center">
         <div className="flex flex-col gap-8">
           <div className="text-[25px] flex justify-center font-bold">
-            {post?.title}
+            {post?.title ?? <TextSkeleton width={210} count={1} />}
           </div>
-          <div className="text-justify">{post?.content}</div>
+          <div className="text-justify">
+            {post?.content ?? <TextSkeleton />}
+          </div>
         </div>
       </div>
     </div>
