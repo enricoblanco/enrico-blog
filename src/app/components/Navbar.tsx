@@ -4,7 +4,7 @@ import React from 'react'
 export const Navbar = () => {
   return (
     <div className="flex-col flex justify-center">
-      <div className="pt-[130px] pb-[60px] px-44">
+      <div className="pt-[130px] pb-[60px] ml-10">
         <Link href={'/'} className="text-[28px] font-bold">
           ENRICOCITY
         </Link>

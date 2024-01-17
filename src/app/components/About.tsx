@@ -8,7 +8,7 @@ export const About = () => {
       <div className="flex justify-center">
         <div className="flex flex-col gap-8">
           <div className="text-[25px] flex justify-center font-bold">ABOUT</div>
-          <div className="text-justify flex flex-col gap-2">
+          <div className="text-justify flex flex-col gap-2 mx-10 md:mx-36 text-sm md:text-lg">
             <p>
               Hello! I&apos;m Enrico Cidade(city) Blanco, a student diving into
               the world of computer science. By day, I&apos;m part of the WebMed
