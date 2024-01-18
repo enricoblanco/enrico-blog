@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 
 export default function Admin() {
   const [data, setData] = useState({
@@ -10,15 +9,15 @@ export default function Admin() {
     password: ''
   })
 
-  const router = useRouter()
+  // const router = useRouter()
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-    signIn('credentials', {
-      ...data,
-      redirect: false
-    })
-    router.push('/about')
+    // signIn('credentials', {
+    //   ...data,
+    //   redirect: false
+    // })
+    // router.push('/about')
   }
 
   return (
