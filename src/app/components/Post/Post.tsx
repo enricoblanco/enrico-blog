@@ -16,7 +16,9 @@ interface PostInterface {
 }
 
 export const Post = () => {
-  const { id } = useParams()
+  const params = useParams()
+
+  const id = params?.id
 
   useEffect(() => {
     console.log(id)

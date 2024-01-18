@@ -16,7 +16,21 @@ model Post {
 }
 
 model User {
-  id                 String    @id @default(auto()) @map("_id") @db.ObjectId
-  username           String    @unique
-  password           String
+  id             String       @id @default(auto()) @map("_id") @db.ObjectId
+  name           String?
+  username       String      @unique
+  hashedPassword String
+  createdAt      DateTime?    @default(now())
+  updatedAt      DateTime?    @updatedAt
+  Sessions       Session[]
 }
+
+model Session {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  handle    String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
