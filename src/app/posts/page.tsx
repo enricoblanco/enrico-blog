@@ -1,5 +1,5 @@
+import { PostItem } from '@/components/Post'
 import React from 'react'
-import { PostItem } from '../components/Post'
 
 export default function Posts() {
   return (
