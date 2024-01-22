@@ -21,7 +21,6 @@ export const Post = () => {
   const id = params?.id
 
   useEffect(() => {
-    console.log(id)
     const postReq = async () => {
       try {
         const response = await axios.get(`/api/post/${id}`)

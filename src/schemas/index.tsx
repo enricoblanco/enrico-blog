@@ -17,3 +17,8 @@ export const RegisterSchema = z.object({
     .max(100),
   name: z.string().min(1, { message: 'Name is required' })
 })
+
+export const CreatePostSchema = z.object({
+  title: z.string().min(1, { message: 'Title is required' }),
+  content: z.string().min(1, { message: 'Content is required' })
+})

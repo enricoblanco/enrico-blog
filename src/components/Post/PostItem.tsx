@@ -1,37 +1,28 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { NextResponse } from 'next/server'
 import formatDate from '@/functions/formatDate'
 import Link from 'next/link'
 import { TextSkeleton } from './TextSkeleton'
-
-interface Post {
-  id: string
-  title: string
-  content: string
-  image: string
-  createdAt: string
-}
+import { getAllPosts } from '@/actions/posts'
+import { Post } from '@prisma/client'
 
 export const PostItem = () => {
-  const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
+  const [postsArray, setPostsArray] = useState<Post[] | null>([])
+
+  const fetchPosts = async () => {
+    setLoading(true)
+
+    const result = await getAllPosts()
+
+    setPostsArray(result)
+
+    setLoading(false)
+  }
 
   useEffect(() => {
-    const postsReq = async () => {
-      setLoading(true)
-      try {
-        const response = await axios.get('/api/post')
-        setPosts(response.data)
-        setLoading(false)
-      } catch (error) {
-        NextResponse.error()
-      }
-    }
-
-    postsReq()
+    fetchPosts()
   }, [])
 
   return (
@@ -39,7 +30,7 @@ export const PostItem = () => {
       {loading ? (
         <TextSkeleton width={210} />
       ) : (
-        posts.map(post => (
+        postsArray?.map(post => (
           <div className="flex flex-row gap-8" key={post.id}>
             <div className="w-fit">{formatDate(post.createdAt)}</div>
             <Link
