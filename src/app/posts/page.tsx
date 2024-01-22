@@ -6,7 +6,7 @@ export default function Posts() {
     <div>
       <div className="flex flex-col gap-3 ml-12">
         <div className="text-[25px] font-semibold">POSTS</div>
-        <PostItem />
+        {/* <PostItem /> */}
       </div>
     </div>
   )
