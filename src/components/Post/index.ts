@@ -1,2 +1,2 @@
-export * from './Post'
-export * from './PostItem'
+export * from './post-component'
+export * from './post-item'

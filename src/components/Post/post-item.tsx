@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import formatDate from '@/functions/formatDate'
 import Link from 'next/link'
-import { TextSkeleton } from './TextSkeleton'
+import { TextSkeleton } from './text-skeleton'
 import { getAllPosts } from '@/actions/posts'
 import { Post } from '@prisma/client'
 

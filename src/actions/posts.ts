@@ -28,8 +28,6 @@ export const createPost = async (values: z.infer<typeof CreatePostSchema>) => {
 }
 
 export const getAllPosts = async () => {
-  'use server'
-
   try {
     const posts = await prisma.post.findMany({
       orderBy: {
@@ -38,6 +36,19 @@ export const getAllPosts = async () => {
     })
 
     return posts
+  } catch (error) {
+    return null
+  }
+}
+
+export const getPostById = async (id: string) => {
+  try {
+    const post = await prisma.post.findUnique({
+      where: {
+        id
+      }
+    })
+    return post
   } catch (error) {
     return null
   }

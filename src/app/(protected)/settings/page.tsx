@@ -2,8 +2,9 @@ import { auth, signOut } from '@/auth'
 
 const SettignsPage = async () => {
   const session = await auth()
+
   return (
-    <div>
+    <div className="overflow-scroll">
       {JSON.stringify(session)}
       <form
         action={async () => {
