@@ -7,6 +7,7 @@
 export const publicRoutes = [
   '/',
   '/about',
+  '/auth/new-verification',
   '/posts',
   '/posts/65a6fde913d236fa308e3032'
 ]
@@ -16,7 +17,13 @@ export const publicRoutes = [
  * These routes will redirect logged in users to the settings page
  * @type {string[]}
  */
-export const authRoutes = ['/auth/login', '/auth/register', '/auth/error']
+export const authRoutes = [
+  '/auth/login',
+  '/auth/register',
+  '/auth/error',
+  '/auth/reset',
+  '/auth/new-password'
+]
 
 /**
  * The prefix for API authentication routes
