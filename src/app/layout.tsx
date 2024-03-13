@@ -6,6 +6,8 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { SessionProvider } from 'next-auth/react'
+import { auth } from '@/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,15 +21,18 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const session = await auth()
   return (
-    <html lang="en">
-      <body className={cn('text-slate-700', inter.className)}>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <SessionProvider session={session}>
+      <html lang="en">
+        <body className={cn('text-slate-700', inter.className)}>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </SessionProvider>
   )
 }
