@@ -3,12 +3,11 @@ import { UserRole } from '@prisma/client'
 
 export type ExtendedUser = DefaultSession['user'] & {
   role: UserRole
+  isOauth: boolean
 }
 
 declare module 'next-auth' {
   interface Session {
-    user: {
-      role: 'ADMIN' | 'USER'
-    } & DefaultSession['user']
+    user: ExtendedUser
   }
 }
