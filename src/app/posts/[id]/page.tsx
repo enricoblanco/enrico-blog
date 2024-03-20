@@ -1,5 +1,5 @@
-import { Post } from '../../components/Post'
+import { PostComponent } from '@/components/post'
 
 export default function PostPage() {
-  return <Post />
+  return <PostComponent />
 }
