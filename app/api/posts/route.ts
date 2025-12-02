@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
 
 // GET all posts (public endpoint for listing posts)
@@ -84,6 +85,9 @@ export async function POST(request: NextRequest) {
         media: true,
       },
     });
+
+    // Revalidate the homepage to show the new post
+    revalidatePath('/');
 
     return NextResponse.json(post, { status: 201 });
   } catch (error) {

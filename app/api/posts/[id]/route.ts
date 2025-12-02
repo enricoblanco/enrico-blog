@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
 
 // GET single post by ID or slug
@@ -124,6 +125,10 @@ export async function PUT(
       },
     });
 
+    // Revalidate the homepage and post page
+    revalidatePath('/');
+    revalidatePath(`/posts/${slug}`);
+
     return NextResponse.json(post);
   } catch (error) {
     console.error('Error updating post:', error);
@@ -156,6 +161,10 @@ export async function DELETE(
     await prisma.post.delete({
       where: { id },
     });
+
+    // Revalidate the homepage and post page
+    revalidatePath('/');
+    revalidatePath(`/posts/${post.slug}`);
 
     return NextResponse.json({ success: true });
   } catch (error) {
