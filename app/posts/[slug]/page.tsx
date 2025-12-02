@@ -18,7 +18,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await prisma.post.findUnique({
     where: { slug },
-    select: { title: true, excerpt: true },
+    select: {
+      title: true,
+      excerpt: true,
+      coverImage: true,
+      publishedAt: true,
+    },
   });
 
   if (!post) {
@@ -27,9 +32,38 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  const postUrl = `${siteUrl}/posts/${slug}`;
+  const imageUrl = post.coverImage || `${siteUrl}/og-default.png`;
+
   return {
     title: post.title,
-    description: post.excerpt || '',
+    description: post.excerpt || 'Read this post on Enrico Cidade Blanco\'s blog',
+    authors: [{ name: 'Enrico Cidade Blanco' }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || 'Read this post on Enrico Cidade Blanco\'s blog',
+      url: postUrl,
+      siteName: 'Enrico Cidade Blanco',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: post.publishedAt?.toISOString(),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt || 'Read this post on Enrico Cidade Blanco\'s blog',
+      images: [imageUrl],
+      creator: '@enricocity',
+    },
   };
 }
 
